@@ -4,8 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "babel src --out-dir dist",
-		"build-watch": "babel src --out-dir dist -w",
+		"build": "babel src --out-dir public",
+		"build-watch": "babel src --out-dir public -w",
 		"serve": "lite-server",
 		"start": "concurrently \"yarn build-watch\" \"yarn serve\""
 	},
