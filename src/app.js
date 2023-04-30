@@ -5,10 +5,20 @@ function App() {
 	const [activity, setActivity] = React.useState("");
 	const [todos, setTodos] = React.useState([]);
 
+	function generateId() {
+		return Date.now();
+	}
+
 	function addTodoHandler(event) {
 		event.preventDefault();
 
-		setTodos([...todos, activity]);
+		setTodos([
+			...todos,
+			{
+				id: generateId(),
+				activity,
+			},
+		]);
 		setActivity("");
 	}
 
@@ -23,7 +33,7 @@ function App() {
 
 			<ul>
 				{todos.map((todo) => (
-					<li key={todo}>{todo}</li>
+					<li key={todo.id}>{todo.activity}</li>
 				))}
 			</ul>
 		</>
