@@ -24,7 +24,7 @@ function App() {
 		if (edit.id) {
 			// Updated todo
 			const updatedTodo = {
-				id: edit.id,
+				...edit,
 				activity,
 			};
 
@@ -45,6 +45,7 @@ function App() {
 			{
 				id: generateId(),
 				activity,
+				done: false,
 			},
 		]);
 
@@ -70,6 +71,26 @@ function App() {
 		setActivity("");
 	}
 
+	function doneTodoHandler(todo) {
+		// Checked toggle todo
+		const updatedTodo = {
+			...todo,
+			// Replace old 'done'
+			done: todo.done ? false : true,
+		};
+
+		// Filter
+		const editTodoIndex = todos.findIndex((currentTodo) => currentTodo.id === todo.id);
+
+		// Set
+		const updatedTodos = [...todos];
+		updatedTodos[editTodoIndex] = updatedTodo;
+		setTodos(updatedTodos);
+
+		// // Remove cancel edit
+		// return cancelEditHandler();
+	}
+
 	return (
 		<>
 			<h1>Simple Todo List</h1>
@@ -90,7 +111,8 @@ function App() {
 				<ul>
 					{todos.map((todo) => (
 						<li key={todo.id}>
-							{todo.activity}
+							<input type="checkbox" checked={todo.done} onChange={doneTodoHandler.bind(this, todo)} />
+							{todo.activity} ({todo.done ? "Selesai" : "Belum selesai"})
 							<button type="submit" onClick={editTodoHandler.bind(this, todo)}>
 								Edit
 							</button>
