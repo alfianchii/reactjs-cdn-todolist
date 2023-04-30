@@ -33,7 +33,7 @@ function App() {
 			<h1>Simple Todo List</h1>
 
 			<form onSubmit={addTodoHandler}>
-				<input type="text" placeholder="Nama aktifitas ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
+				<input autoFocus type="text" placeholder="Nama aktifitas ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
 				<button type="submit">Tambah</button>
 			</form>
 
