@@ -4,9 +4,10 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "babel src --out-dir dist -w",
+		"build": "babel src --out-dir dist",
+		"build-watch": "babel src --out-dir dist -w",
 		"serve": "lite-server",
-		"start": "concurrently \"yarn build\" \"yarn serve\""
+		"start": "concurrently \"yarn build-watch\" \"yarn serve\""
 	},
 	"dependencies": {
 		"@babel/cli": "^7.21.5",
