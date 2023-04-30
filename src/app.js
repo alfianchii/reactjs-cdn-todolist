@@ -27,7 +27,10 @@ function App() {
 			// Set
 			const updatedTodos = [...todos];
 			updatedTodos[editTodoIndex] = updatedTodo;
-			return setTodos(updatedTodos);
+			setTodos(updatedTodos);
+
+			// Remove cancel edit
+			return cancelEditHandler();
 		}
 
 		setTodos([
@@ -44,11 +47,19 @@ function App() {
 		const filteredTodos = todos.filter((todo) => todo.id !== todoId);
 
 		setTodos(filteredTodos);
+
+		// Remove cancel edit (edit mode)
+		if (edit.id) cancelEditHandler();
 	}
 
 	function editTodoHandler(todo) {
 		setActivity(todo.activity);
 		setEdit(todo);
+	}
+
+	function cancelEditHandler() {
+		setEdit({});
+		setActivity("");
 	}
 
 	return (
@@ -58,6 +69,7 @@ function App() {
 			<form onSubmit={saveTodoHandler}>
 				<input autoFocus type="text" placeholder="Nama aktifitas ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
 				<button type="submit">{edit.id ? "Simpan" : "Tambah"}</button>
+				{edit.id && <button onClick={cancelEditHandler}>Batal edit</button>}
 			</form>
 
 			<ul>
