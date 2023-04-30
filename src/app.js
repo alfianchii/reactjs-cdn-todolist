@@ -82,19 +82,25 @@ function App() {
 				{edit.id && <button onClick={cancelEditHandler}>Batal edit</button>}
 			</form>
 
-			<ul>
-				{todos.map((todo) => (
-					<li key={todo.id}>
-						{todo.activity}
-						<button type="submit" onClick={editTodoHandler.bind(this, todo)}>
-							Edit
-						</button>
-						<button type="submit" onClick={removeTodoHandler.bind(this, todo.id)}>
-							Hapus
-						</button>
-					</li>
-				))}
-			</ul>
+			{todos.length > 0 ? (
+				<ul>
+					{todos.map((todo) => (
+						<li key={todo.id}>
+							{todo.activity}
+							<button type="submit" onClick={editTodoHandler.bind(this, todo)}>
+								Edit
+							</button>
+							<button type="submit" onClick={removeTodoHandler.bind(this, todo.id)}>
+								Hapus
+							</button>
+						</li>
+					))}
+				</ul>
+			) : (
+				<p>
+					<i>Tidak ada aktifitas.</i>
+				</p>
+			)}
 		</>
 	);
 }
