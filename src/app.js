@@ -17,6 +17,9 @@ function App() {
 		// If input activity was empty string
 		if (!activity) return setMessage("Nama aktifitas jangan kosong!");
 
+		// Remove message when todo already added or updated
+		setMessage("");
+
 		// If edit mode
 		if (edit.id) {
 			// Updated todo
@@ -44,6 +47,7 @@ function App() {
 				activity,
 			},
 		]);
+
 		setActivity("");
 	}
 
