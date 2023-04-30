@@ -4,8 +4,8 @@
 	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"build": "babel src --out-dir public -w",
-		"serve": "lite-server --baseDir public",
+		"build": "babel src --out-dir dist -w",
+		"serve": "lite-server",
 		"start": "concurrently \"yarn build\" \"yarn serve\""
 	},
 	"dependencies": {
