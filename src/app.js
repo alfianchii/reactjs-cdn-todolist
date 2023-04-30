@@ -5,6 +5,7 @@ function App() {
 	const [activity, setActivity] = React.useState("");
 	const [edit, setEdit] = React.useState({});
 	const [todos, setTodos] = React.useState([]);
+	const [message, setMessage] = React.useState("");
 
 	function generateId() {
 		return Date.now();
@@ -12,6 +13,9 @@ function App() {
 
 	function saveTodoHandler(event) {
 		event.preventDefault();
+
+		// If input activity was empty string
+		if (!activity) return setMessage("Nama aktifitas jangan kosong!");
 
 		// If edit mode
 		if (edit.id) {
@@ -65,6 +69,12 @@ function App() {
 	return (
 		<>
 			<h1>Simple Todo List</h1>
+
+			{message && (
+				<div style={{ color: "red" }}>
+					<i>{message}</i>
+				</div>
+			)}
 
 			<form onSubmit={saveTodoHandler}>
 				<input autoFocus type="text" placeholder="Nama aktifitas ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
