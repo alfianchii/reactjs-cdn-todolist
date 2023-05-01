@@ -122,17 +122,17 @@ function App() {
   }, todo.activity)), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, todo.done ? /*#__PURE__*/React.createElement("span", {
-    className: "badge pb-2 text-bg-success"
+    className: "badge text-bg-success"
   }, "Done") : /*#__PURE__*/React.createElement("span", {
-    className: "badge pb-2 text-bg-danger"
+    className: "badge text-bg-danger"
   }, "On progress")), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, /*#__PURE__*/React.createElement("button", {
-    className: "btn btn-primary me-1",
+    className: "btn btn-primary me-2 mb-2",
     type: "submit",
     onClick: editTodoHandler.bind(this, todo)
   }, "Edit"), /*#__PURE__*/React.createElement("button", {
-    className: "btn btn-danger me-1",
+    className: "btn btn-danger me-2 mb-2",
     type: "submit",
     onClick: removeTodoHandler.bind(this, todo.id)
   }, "Delete"))))) : /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
