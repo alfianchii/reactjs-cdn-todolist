@@ -139,7 +139,7 @@ function App() {
     className: "align-middle"
   }, todo.done ? /*#__PURE__*/React.createElement("span", {
     className: "badge text-bg-success"
-  }, "Done") : /*#__PURE__*/React.createElement("span", {
+  }, "Finished") : /*#__PURE__*/React.createElement("span", {
     className: "badge text-bg-warning"
   }, "Progress")), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
