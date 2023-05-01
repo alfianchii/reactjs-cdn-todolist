@@ -140,8 +140,8 @@ function App() {
   }, todo.done ? /*#__PURE__*/React.createElement("span", {
     className: "badge text-bg-success"
   }, "Done") : /*#__PURE__*/React.createElement("span", {
-    className: "badge text-bg-danger"
-  }, "On progress")), /*#__PURE__*/React.createElement("td", {
+    className: "badge text-bg-warning"
+  }, "Progress")), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, /*#__PURE__*/React.createElement("button", {
     className: "btn btn-primary me-2 mb-2",

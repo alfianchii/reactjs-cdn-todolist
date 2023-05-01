@@ -150,7 +150,7 @@ function App() {
 											{todo.activity}
 										</label>
 									</td>
-									<td className="align-middle">{todo.done ? <span className="badge text-bg-success">Done</span> : <span className="badge text-bg-danger">On progress</span>}</td>
+									<td className="align-middle">{todo.done ? <span className="badge text-bg-success">Done</span> : <span className="badge text-bg-warning">Progress</span>}</td>
 									<td className="align-middle">
 										<button className="btn btn-primary me-2 mb-2" type="submit" onClick={editTodoHandler.bind(this, todo)}>
 											Edit
