@@ -74,10 +74,10 @@ function App() {
     updatedTodos[editTodoIndex] = updatedTodo;
     setTodos(updatedTodos);
   }
-  return /*#__PURE__*/React.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "col"
+    className: "col-12"
   }, /*#__PURE__*/React.createElement("div", {
     className: "text-center mb-3"
   }, /*#__PURE__*/React.createElement("h1", null, "Simple Todo-list Application"), /*#__PURE__*/React.createElement("span", {
@@ -99,7 +99,11 @@ function App() {
   }, "Alfian"))), message && /*#__PURE__*/React.createElement("div", {
     className: "alert alert-danger",
     role: "alert"
-  }, message)), /*#__PURE__*/React.createElement("form", {
+  }, message))), /*#__PURE__*/React.createElement("div", {
+    class: "row"
+  }, /*#__PURE__*/React.createElement("div", {
+    class: "col-12"
+  }, /*#__PURE__*/React.createElement("form", {
     className: "mb-3",
     onSubmit: saveTodoHandler
   }, /*#__PURE__*/React.createElement("div", {
@@ -119,7 +123,12 @@ function App() {
     className: "btn btn-outline-danger me-2",
     onClick: cancelEditHandler
   }, "Cancel"))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
-    className: "table table-striped"
+    className: "table table-striped",
+    style: {
+      overflowX: "scroll",
+      width: "100%",
+      display: "block"
+    }
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Check"), /*#__PURE__*/React.createElement("th", null, "Activity"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Action"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
     key: todo.id
   }, /*#__PURE__*/React.createElement("td", {
@@ -175,6 +184,6 @@ function App() {
     colSpan: "5"
   }, /*#__PURE__*/React.createElement("p", {
     className: "text-center mt-3"
-  }, "There was no activity."))))));
+  }, "There was no activity."))))))));
 }
 root.render( /*#__PURE__*/React.createElement(App, null));
