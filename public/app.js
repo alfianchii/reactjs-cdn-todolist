@@ -12,7 +12,7 @@ function App() {
     event.preventDefault();
 
     // If input activity was empty string
-    if (!activity) return setMessage("Nama aktifitas jangan kosong!");
+    if (!activity) return setMessage("Activity name should not be empty!");
 
     // Remove message when todo already added or updated
     setMessage("");
@@ -73,11 +73,7 @@ function App() {
     const updatedTodos = [...todos];
     updatedTodos[editTodoIndex] = updatedTodo;
     setTodos(updatedTodos);
-
-    // // Remove cancel edit
-    // return cancelEditHandler();
   }
-
   return /*#__PURE__*/React.createElement("div", {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
@@ -96,19 +92,19 @@ function App() {
     autoFocus: true,
     type: "text",
     className: "form-control",
-    id: "nama-aktifitas",
-    placeholder: "Nama aktifitas ...",
+    id: "activity-name",
+    placeholder: "Activity name ...",
     value: activity,
     onChange: event => setActivity(event.target.value)
   }), /*#__PURE__*/React.createElement("button", {
     className: "btn btn-outline-primary",
     type: "submit"
-  }, edit.id ? "Simpan" : "Tambah"), edit.id && /*#__PURE__*/React.createElement("button", {
+  }, edit.id ? "Save" : "Add"), edit.id && /*#__PURE__*/React.createElement("button", {
     className: "btn btn-outline-danger me-2",
     onClick: cancelEditHandler
-  }, "Batal edit"))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
+  }, "Cancel"))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
     className: "table table-striped"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Aktifitas"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Aksi"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Activity"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Action"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
     key: todo.id
   }, /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
@@ -126,23 +122,23 @@ function App() {
   }, todo.activity)), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, todo.done ? /*#__PURE__*/React.createElement("span", {
-    className: "badge text-bg-success"
-  }, "Selesai") : /*#__PURE__*/React.createElement("span", {
-    className: "badge text-bg-danger"
-  }, "Belum selesai")), /*#__PURE__*/React.createElement("td", {
+    className: "badge pb-2 text-bg-success"
+  }, "Done") : /*#__PURE__*/React.createElement("span", {
+    className: "badge pb-2 text-bg-danger"
+  }, "On progress")), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, /*#__PURE__*/React.createElement("button", {
-    className: "btn btn-success me-1",
+    className: "btn btn-primary me-1",
     type: "submit",
     onClick: editTodoHandler.bind(this, todo)
   }, "Edit"), /*#__PURE__*/React.createElement("button", {
     className: "btn btn-danger me-1",
     type: "submit",
     onClick: removeTodoHandler.bind(this, todo.id)
-  }, "Hapus"))))) : /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
+  }, "Delete"))))) : /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
     colSpan: "4"
   }, /*#__PURE__*/React.createElement("p", {
     className: "text-center mt-3"
-  }, "Tidak ada aktifitas."))))));
+  }, "There was no activity."))))));
 }
 root.render( /*#__PURE__*/React.createElement(App, null));

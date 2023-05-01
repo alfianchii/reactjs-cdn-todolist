@@ -15,7 +15,7 @@ function App() {
 		event.preventDefault();
 
 		// If input activity was empty string
-		if (!activity) return setMessage("Nama aktifitas jangan kosong!");
+		if (!activity) return setMessage("Activity name should not be empty!");
 
 		// Remove message when todo already added or updated
 		setMessage("");
@@ -86,9 +86,6 @@ function App() {
 		const updatedTodos = [...todos];
 		updatedTodos[editTodoIndex] = updatedTodo;
 		setTodos(updatedTodos);
-
-		// // Remove cancel edit
-		// return cancelEditHandler();
 	}
 
 	return (
@@ -105,13 +102,13 @@ function App() {
 
 			<form className="mb-3" onSubmit={saveTodoHandler}>
 				<div className="input-group mb-3">
-					<input autoFocus type="text" className="form-control" id="nama-aktifitas" placeholder="Nama aktifitas ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
+					<input autoFocus type="text" className="form-control" id="activity-name" placeholder="Activity name ..." value={activity} onChange={(event) => setActivity(event.target.value)} />
 					<button className="btn btn-outline-primary" type="submit">
-						{edit.id ? "Simpan" : "Tambah"}
+						{edit.id ? "Save" : "Add"}
 					</button>
 					{edit.id && (
 						<button className="btn btn-outline-danger me-2" onClick={cancelEditHandler}>
-							Batal edit
+							Cancel
 						</button>
 					)}
 				</div>
@@ -123,9 +120,9 @@ function App() {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Aktifitas</th>
+						<th>Activity</th>
 						<th>Status</th>
-						<th>Aksi</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -140,13 +137,13 @@ function App() {
 											{todo.activity}
 										</label>
 									</td>
-									<td className="align-middle">{todo.done ? <span className="badge text-bg-success">Selesai</span> : <span className="badge text-bg-danger">Belum selesai</span>}</td>
+									<td className="align-middle">{todo.done ? <span className="badge pb-2 text-bg-success">Done</span> : <span className="badge pb-2 text-bg-danger">On progress</span>}</td>
 									<td className="align-middle">
-										<button className="btn btn-success me-1" type="submit" onClick={editTodoHandler.bind(this, todo)}>
+										<button className="btn btn-primary me-1" type="submit" onClick={editTodoHandler.bind(this, todo)}>
 											Edit
 										</button>
 										<button className="btn btn-danger me-1" type="submit" onClick={removeTodoHandler.bind(this, todo.id)}>
-											Hapus
+											Delete
 										</button>
 									</td>
 								</tr>
@@ -155,7 +152,7 @@ function App() {
 					) : (
 						<tr>
 							<td colSpan="4">
-								<p className="text-center mt-3">Tidak ada aktifitas.</p>
+								<p className="text-center mt-3">There was no activity.</p>
 							</td>
 						</tr>
 					)}
