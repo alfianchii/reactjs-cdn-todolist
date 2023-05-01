@@ -78,9 +78,25 @@ function App() {
     className: "row"
   }, /*#__PURE__*/React.createElement("div", {
     className: "col"
-  }, /*#__PURE__*/React.createElement("h1", {
-    className: "text-center mb-4"
-  }, "Simple Todo-list Application"), message && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "text-center mb-3"
+  }, /*#__PURE__*/React.createElement("h1", null, "Simple Todo-list Application"), /*#__PURE__*/React.createElement("span", {
+    className: "mb-3 mt-2 d-inline-block h6 font-monospace font-weight-light text-muted"
+  }, "Made with", " ", /*#__PURE__*/React.createElement("svg", {
+    fill: "red",
+    xmlns: "http://www.w3.org/2000/svg",
+    width: "16",
+    height: "16",
+    className: "bi bi-heart-fill",
+    viewBox: "0 0 16 16"
+  }, /*#__PURE__*/React.createElement("path", {
+    "fill-rule": "evenodd",
+    d: "M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"
+  })), " ", "by", " ", /*#__PURE__*/React.createElement("a", {
+    href: "https://github.com/alfianchii",
+    className: "text-decoration-none",
+    target: "_blank"
+  }, "Alfian"))), message && /*#__PURE__*/React.createElement("div", {
     className: "alert alert-danger",
     role: "alert"
   }, message)), /*#__PURE__*/React.createElement("form", {
