@@ -120,19 +120,39 @@ function App() {
     onClick: cancelEditHandler
   }, "Cancel"))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
     className: "table table-striped"
-  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Activity"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Action"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
+  }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Check"), /*#__PURE__*/React.createElement("th", null, "Activity"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Action"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
     key: todo.id
   }, /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, index + 1), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "btn-group-vertical",
+    role: "group",
+    "aria-label": "Vertical radio toggle button group"
   }, /*#__PURE__*/React.createElement("input", {
-    className: "form-check-input me-2",
-    type: "checkbox",
-    checked: todo.done,
-    id: todo.id,
+    type: "radio",
+    className: "btn-check",
+    id: "not-yet",
+    autocomplete: "off",
+    checked: todo.done ? false : true,
     onChange: doneTodoHandler.bind(this, todo)
   }), /*#__PURE__*/React.createElement("label", {
+    className: "btn btn-outline-primary",
+    for: "not-yet"
+  }, "Progress~"), /*#__PURE__*/React.createElement("input", {
+    type: "radio",
+    className: "btn-check",
+    id: "done",
+    autocomplete: "off",
+    checked: todo.done ? true : false,
+    onChange: doneTodoHandler.bind(this, todo)
+  }), /*#__PURE__*/React.createElement("label", {
+    className: "btn btn-outline-primary",
+    for: "done"
+  }, "Done!"))), /*#__PURE__*/React.createElement("td", {
+    className: "align-middle text-center text-md-start"
+  }, /*#__PURE__*/React.createElement("label", {
     className: "form-check-label",
     htmlFor: todo.id
   }, todo.activity)), /*#__PURE__*/React.createElement("td", {
@@ -140,7 +160,7 @@ function App() {
   }, todo.done ? /*#__PURE__*/React.createElement("span", {
     className: "badge text-bg-success"
   }, "Finished") : /*#__PURE__*/React.createElement("span", {
-    className: "badge text-bg-warning"
+    className: "badge text-bg-danger"
   }, "Progress")), /*#__PURE__*/React.createElement("td", {
     className: "align-middle"
   }, /*#__PURE__*/React.createElement("button", {
@@ -152,7 +172,7 @@ function App() {
     type: "submit",
     onClick: removeTodoHandler.bind(this, todo.id)
   }, "Delete"))))) : /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("td", {
-    colSpan: "4"
+    colSpan: "5"
   }, /*#__PURE__*/React.createElement("p", {
     className: "text-center mt-3"
   }, "There was no activity."))))));

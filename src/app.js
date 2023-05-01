@@ -133,6 +133,7 @@ function App() {
 				<thead>
 					<tr>
 						<th>#</th>
+						<th>Check</th>
 						<th>Activity</th>
 						<th>Status</th>
 						<th>Action</th>
@@ -145,12 +146,23 @@ function App() {
 								<tr key={todo.id}>
 									<td className="align-middle">{index + 1}</td>
 									<td className="align-middle">
-										<input className="form-check-input me-2" type="checkbox" checked={todo.done} id={todo.id} onChange={doneTodoHandler.bind(this, todo)} />
+										<div className="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+											<input type="radio" className="btn-check" id="not-yet" autocomplete="off" checked={todo.done ? false : true} onChange={doneTodoHandler.bind(this, todo)} />
+											<label className="btn btn-outline-primary" for="not-yet">
+												Progress~
+											</label>
+											<input type="radio" className="btn-check" id="done" autocomplete="off" checked={todo.done ? true : false} onChange={doneTodoHandler.bind(this, todo)} />
+											<label className="btn btn-outline-primary" for="done">
+												Done!
+											</label>
+										</div>
+									</td>
+									<td className="align-middle text-center text-md-start">
 										<label className="form-check-label" htmlFor={todo.id}>
 											{todo.activity}
 										</label>
 									</td>
-									<td className="align-middle">{todo.done ? <span className="badge text-bg-success">Finished</span> : <span className="badge text-bg-warning">Progress</span>}</td>
+									<td className="align-middle">{todo.done ? <span className="badge text-bg-success">Finished</span> : <span className="badge text-bg-danger">Progress</span>}</td>
 									<td className="align-middle">
 										<button className="btn btn-primary me-2 mb-2" type="submit" onClick={editTodoHandler.bind(this, todo)}>
 											Edit
@@ -164,7 +176,7 @@ function App() {
 						</>
 					) : (
 						<tr>
-							<td colSpan="4">
+							<td colSpan="5">
 								<p className="text-center mt-3">There was no activity.</p>
 							</td>
 						</tr>
