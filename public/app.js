@@ -123,11 +123,10 @@ function App() {
     className: "btn btn-outline-danger me-2",
     onClick: cancelEditHandler
   }, "Cancel"))), /*#__PURE__*/React.createElement("hr", null), /*#__PURE__*/React.createElement("table", {
-    className: "table table-striped",
+    className: "table table-striped d-block d-md-table",
     style: {
       overflowX: "scroll",
-      width: "100%",
-      display: "block"
+      width: "100%"
     }
   }, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "#"), /*#__PURE__*/React.createElement("th", null, "Check"), /*#__PURE__*/React.createElement("th", null, "Activity"), /*#__PURE__*/React.createElement("th", null, "Status"), /*#__PURE__*/React.createElement("th", null, "Action"))), /*#__PURE__*/React.createElement("tbody", null, todos.length > 0 ? /*#__PURE__*/React.createElement(React.Fragment, null, todos.map((todo, index) => /*#__PURE__*/React.createElement("tr", {
     key: todo.id

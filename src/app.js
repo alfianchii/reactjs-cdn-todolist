@@ -133,7 +133,7 @@ function App() {
 
 					<hr />
 
-					<table className="table table-striped" style={{ overflowX: "scroll", width: "100%", display: "block" }}>
+					<table className="table table-striped d-block d-md-table" style={{ overflowX: "scroll", width: "100%" }}>
 						<thead>
 							<tr>
 								<th>#</th>
