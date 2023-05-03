@@ -141,23 +141,23 @@ function App() {
   }, /*#__PURE__*/React.createElement("input", {
     type: "radio",
     className: "btn-check",
-    id: "not-yet",
+    id: "not-yet-" + todo.id,
     autocomplete: "off",
     checked: todo.done ? false : true,
     onChange: doneTodoHandler.bind(this, todo)
   }), /*#__PURE__*/React.createElement("label", {
     className: "btn btn-outline-primary",
-    for: "not-yet"
+    for: "not-yet-" + todo.id
   }, "Progress~"), /*#__PURE__*/React.createElement("input", {
     type: "radio",
     className: "btn-check",
-    id: "done",
+    id: "done-" + todo.id,
     autocomplete: "off",
     checked: todo.done ? true : false,
     onChange: doneTodoHandler.bind(this, todo)
   }), /*#__PURE__*/React.createElement("label", {
     className: "btn btn-outline-primary",
-    for: "done"
+    for: "done-" + todo.id
   }, "Done!"))), /*#__PURE__*/React.createElement("td", {
     className: "align-middle text-center text-md-start"
   }, /*#__PURE__*/React.createElement("label", {

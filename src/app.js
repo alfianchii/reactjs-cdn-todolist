@@ -151,12 +151,12 @@ function App() {
 											<td className="align-middle">{index + 1}</td>
 											<td className="align-middle">
 												<div className="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-													<input type="radio" className="btn-check" id="not-yet" autocomplete="off" checked={todo.done ? false : true} onChange={doneTodoHandler.bind(this, todo)} />
-													<label className="btn btn-outline-primary" for="not-yet">
+													<input type="radio" className="btn-check" id={"not-yet-" + todo.id} autocomplete="off" checked={todo.done ? false : true} onChange={doneTodoHandler.bind(this, todo)} />
+													<label className="btn btn-outline-primary" for={"not-yet-" + todo.id}>
 														Progress~
 													</label>
-													<input type="radio" className="btn-check" id="done" autocomplete="off" checked={todo.done ? true : false} onChange={doneTodoHandler.bind(this, todo)} />
-													<label className="btn btn-outline-primary" for="done">
+													<input type="radio" className="btn-check" id={"done-" + todo.id} autocomplete="off" checked={todo.done ? true : false} onChange={doneTodoHandler.bind(this, todo)} />
+													<label className="btn btn-outline-primary" for={"done-" + todo.id}>
 														Done!
 													</label>
 												</div>
