@@ -51,6 +51,8 @@ function App() {
     if (edit.id) cancelEditHandler();
   }
   function editTodoHandler(todo) {
+    const input = document.getElementById("activity-name");
+    input.focus();
     setActivity(todo.activity);
     setEdit(todo);
   }

@@ -62,6 +62,9 @@ function App() {
 	}
 
 	function editTodoHandler(todo) {
+		const input = document.getElementById("activity-name");
+		input.focus();
+
 		setActivity(todo.activity);
 		setEdit(todo);
 	}
